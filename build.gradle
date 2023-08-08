@@ -10,15 +10,17 @@ buildscript {
         okhttp_version = "4.10.0"
         room_version = "2.5.2"
         retrofit_version = "2.9.0"
+        kt_version = "1.8.20"
     }
     dependencies {
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
+        classpath "org.jetbrains.kotlin:kotlin-serialization:$kt_version"
     }
 }
 
 plugins {
     id 'com.android.application' version '8.1.0' apply false
-    id 'org.jetbrains.kotlin.android' version '1.8.20' apply false
+    id 'org.jetbrains.kotlin.android' version "$kt_version" apply false
     id 'com.google.dagger.hilt.android' version "$hilt_version" apply false
     id 'com.google.devtools.ksp' version '1.8.20-1.0.11' apply false
 }

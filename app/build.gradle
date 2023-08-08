@@ -4,6 +4,7 @@ plugins {
     id 'kotlin-kapt'
     id 'com.google.dagger.hilt.android'
     id 'com.google.devtools.ksp'
+    id 'org.jetbrains.kotlin.plugin.serialization'
     id 'androidx.navigation.safeargs.kotlin'
 }
 
@@ -46,6 +47,7 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.9.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1'
 
     // Android Jetpack
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
@@ -76,8 +78,13 @@ dependencies {
     // Utils
     implementation "com.jakewharton.timber:timber:$timber_version"
 
-    // Test
+    // Unit Test
     testImplementation 'junit:junit:4.13.2'
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.2"
+    testImplementation 'org.mockito:mockito-core:5.4.0'
+    testImplementation "org.mockito.kotlin:mockito-kotlin:5.0.0"
+    testImplementation "com.google.truth:truth:1.1.4"
+
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
