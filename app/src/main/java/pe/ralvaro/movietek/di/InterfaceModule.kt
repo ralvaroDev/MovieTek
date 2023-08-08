@@ -4,6 +4,8 @@ import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import pe.ralvaro.movietek.data.network.FakeApiLogin
+import pe.ralvaro.movietek.data.network.FakeServerSource
 import pe.ralvaro.movietek.data.preferences.ProtoDataStorage
 import pe.ralvaro.movietek.data.preferences.ProtoDataStorageImpl
 import pe.ralvaro.movietek.data.repositories.PreferenceStoreRepository
@@ -25,5 +27,10 @@ abstract class InterfaceModule {
     abstract fun bindPreferenceStoreRepository(
         preferenceStoreRepositoryImpl: PreferenceStoreRepositoryImpl
     ): PreferenceStoreRepository
+
+    @Binds
+    abstract fun bindFakeApiImpl(
+        fakeServerSource: FakeServerSource
+    ): FakeApiLogin
 
 }

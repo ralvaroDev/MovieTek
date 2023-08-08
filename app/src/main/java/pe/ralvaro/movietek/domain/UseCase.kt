@@ -30,6 +30,7 @@ abstract class UseCase<in P, R>(private val coroutineDispatcher: CoroutineDispat
 abstract class FlowUseCase<in P, R>(private val coroutineDispatcher: CoroutineDispatcher) {
     operator fun invoke(parameters: P): Flow<Result<R>> = execute(parameters)
         .catch { e ->
+            Timber.e(e, "Error executing flow use case")
             emit(Error(Exception(e)))
         }
         .flowOn(coroutineDispatcher)

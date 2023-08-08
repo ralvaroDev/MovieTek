@@ -56,7 +56,7 @@ class LauncherViewModelTest {
         assertThat(result).isEqualTo(expectedDestination)
     }
 
-    class FakePreferenceStoreRepository(initialView: InitialView) : PreferenceStoreRepository {
+    private class FakePreferenceStoreRepository(initialView: InitialView) : PreferenceStoreRepository {
         override suspend fun cleanUserPreferences() {}
 
         override suspend fun updateInitialView(initialView: InitialView) {}
