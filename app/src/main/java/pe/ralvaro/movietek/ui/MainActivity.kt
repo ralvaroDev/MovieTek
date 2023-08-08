@@ -1,7 +1,7 @@
 package pe.ralvaro.movietek.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import pe.ralvaro.movietek.R
