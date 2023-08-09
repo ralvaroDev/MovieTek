@@ -7,6 +7,9 @@
     <string name="pacific_rim_the_black">Pacific Rim The Black</string>
     <string name="overview">Resumen</string>
     <string name="back_btn">Back button</string>
+    <string name="logout_btn">Logout</string>
+
+    <string name="welcome_msg">Hey, </string>
 
 
 </resources>
