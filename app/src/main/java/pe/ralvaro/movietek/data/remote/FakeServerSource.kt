@@ -6,6 +6,7 @@ import pe.ralvaro.movietek.utils.Result
 
 interface FakeApiLogin {
     suspend fun putLogin(userName: String, password: String): Result<Any>
+    fun currentUsername() : String
 }
 
 /**
@@ -23,6 +24,10 @@ object FakeServerSource : FakeApiLogin {
         } else {
             Error(Exception("Error trying to login, invalid credentials"))
         }
+    }
+
+   override fun currentUsername() : String {
+        return databaseCredentials.first().userName
     }
 
     private fun checkCredentials(userName: String, password: String): Boolean {

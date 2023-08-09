@@ -17,4 +17,8 @@ class CredentialsDataRepository @Inject constructor(
         return fakeApiLogin.putLogin(email, password)
     }
 
+    fun getUsername() : String {
+        return fakeApiLogin.currentUsername()
+    }
+
 }

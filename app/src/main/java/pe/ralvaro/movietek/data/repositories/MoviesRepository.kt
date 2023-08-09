@@ -16,4 +16,6 @@ class MoviesRepository @Inject constructor(
         it.toDomainModel()
     }
 
+    suspend fun clearSession() = dao.deleteAll()
+
 }
