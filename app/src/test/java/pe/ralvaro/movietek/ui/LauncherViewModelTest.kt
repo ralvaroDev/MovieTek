@@ -62,6 +62,9 @@ class LauncherViewModelTest {
         override suspend fun updateInitialView(initialView: InitialView) {}
 
         override val initialView: Flow<InitialView> = flow { emit(initialView) }
+        override suspend fun updateIsPagingFixed(isPagingFixed: Boolean) {}
+
+        override val isPagingFixed: Flow<Boolean> = flow { emit(false) }
     }
 
 

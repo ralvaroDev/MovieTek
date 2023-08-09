@@ -13,5 +13,10 @@ class FakePreferenceStoreRepository: PreferenceStoreRepository {
     }
 
     override val initialView: Flow<InitialView> = mock {  }
+    override suspend fun updateIsPagingFixed(isPagingFixed: Boolean) {
+
+    }
+
+    override val isPagingFixed: Flow<Boolean> = mock {  }
 
 }

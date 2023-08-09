@@ -18,13 +18,11 @@ import javax.inject.Singleton
 @Module
 abstract class InterfaceModule {
 
-    @Singleton
     @Binds
     abstract fun bindProtoPreferenceDataStore(
-        protoPreferenceDataStorageImpl: ProtoDataStorageImpl
+        protoDataStorageImpl: ProtoDataStorageImpl
     ): ProtoDataStorage
 
-    @Singleton
     @Binds
     abstract fun bindPreferenceStoreRepository(
         preferenceStoreRepositoryImpl: PreferenceStoreRepositoryImpl
@@ -35,7 +33,6 @@ abstract class InterfaceModule {
         fakeServerSource: FakeServerSource
     ): FakeApiLogin
 
-    @Singleton
     @Binds
     abstract fun bindRemoteMediatorSourceRepository(
         remoteMediatorSourceRepositoryImpl: RemoteMediatorSourceRepositoryImpl

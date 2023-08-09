@@ -8,6 +8,7 @@ import javax.inject.Inject
 interface ProtoDataStorage {
     suspend fun cleanUserPreferences()
     suspend fun updateInitialView(initialView: InitialView)
+    suspend fun updateIsPagingFixed(isPagingFixed: Boolean)
     val userPreferences: Flow<ProtoPreferenceModel>
 }
 
@@ -29,6 +30,13 @@ class ProtoDataStorageImpl @Inject constructor(
         }
     }
 
+    override suspend fun updateIsPagingFixed(isPagingFixed: Boolean) {
+        dataStore.updateData {
+            it.copy(isPagingFixed = isPagingFixed)
+        }
+    }
+
     override val userPreferences: Flow<ProtoPreferenceModel> = dataStore.data
+
 
 }

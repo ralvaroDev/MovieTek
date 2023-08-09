@@ -15,7 +15,8 @@ import java.io.OutputStream
  */
 @Serializable
 data class ProtoPreferenceModel(
-    val initialView: InitialView = InitialView.Login
+    val initialView: InitialView = InitialView.Login,
+    val isPagingFixed: Boolean = false
 )
 
 object ProtoStoreSerializer : Serializer<ProtoPreferenceModel> {

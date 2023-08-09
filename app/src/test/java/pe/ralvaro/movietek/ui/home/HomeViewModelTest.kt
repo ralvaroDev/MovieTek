@@ -35,7 +35,9 @@ class HomeViewModelTest {
         viewModel = HomeViewModel(
             moviePaginationAccessUseCase = mock { },
             getUsernameFromCurrentSessionUseCase = useCase,
-            closeSessionUseCase = mock { }
+            closeSessionUseCase = mock { },
+            fixedPagingUseCase = mock {  },
+            fixedPagingActionUseCase = mock {  }
         )
     }
 

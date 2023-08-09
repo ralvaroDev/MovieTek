@@ -8,6 +8,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import pe.ralvaro.movietek.R
@@ -42,6 +43,18 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
             launch {
                 homeViewModel.moviePagingFlow.collect {
                     adapter.submitData(it)
+                }
+            }
+            // Receive paging fixed state to scroll to top and fix the paging
+            launch {
+                homeViewModel.isPagingFixed.first().let {
+                    if (!it) {
+                        adapter.retry()
+                        // adding delay to ensure scrolling
+                        delay(1500)
+                        binding.rvMovies.scrollToPosition(0)
+                        homeViewModel.notifyPagingFixed()
+                    }
                 }
             }
             // Hear refresh state to handle progression
