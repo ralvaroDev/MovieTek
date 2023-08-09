@@ -103,6 +103,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/medium_space"
+                    android:textSize="18sp"
+                    android:paddingVertical="14dp"
                     android:text="Login"
                     app:cornerRadius="@dimen/radius_small"
                     app:layout_constraintTop_toBottomOf="@id/til_password" />

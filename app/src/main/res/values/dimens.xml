@@ -5,6 +5,9 @@
     <dimen name="small_space">8dp</dimen>
 
     <dimen name="radius_small">8dp</dimen>
+    <dimen name="radius_medium">16dp</dimen>
+
+    <dimen name="actionbar_minus_radius_medium">48dp</dimen>
 
     <dimen name="img_size">150dp</dimen>
 

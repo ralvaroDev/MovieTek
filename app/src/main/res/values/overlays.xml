@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="CustomCardViewStyle" parent="@style/Widget.MaterialComponents.CardView">
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceBottomCorner</item>
+    </style>
+    
+    <style name="ShapeAppearanceBottomCorner" parent="">
+        <item name="cornerSizeTopRight">0dp</item>
+        <item name="cornerSizeTopLeft">0dp</item>
+        <item name="cornerSizeBottomRight">@dimen/radius_medium</item>
+        <item name="cornerSizeBottomLeft">@dimen/radius_medium</item>
+    </style>
+
+</resources>
