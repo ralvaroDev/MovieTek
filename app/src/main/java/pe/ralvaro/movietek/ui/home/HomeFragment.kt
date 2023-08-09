@@ -71,7 +71,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
             }
         }
 
-        binding.btnLogout.setOnClickListener {
+        binding.ivLogout.setOnClickListener {
             homeViewModel.closeSession()
         }
 
@@ -89,22 +89,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
     }
 
     private fun setWelcomeMessage(username: String) {
-        val firstWord = getString(R.string.welcome_msg)
-        val secondWord = username.plus("!")
-        val spannableString = SpannableString("$firstWord $secondWord")
-        spannableString.setSpan(
-            AbsoluteSizeSpan(16, true),
-            0,
-            firstWord.length,
-            Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
-        )
-        spannableString.setSpan(
-            AbsoluteSizeSpan(24, true),
-            firstWord.length + 1,
-            firstWord.length + secondWord.length + 1,
-            Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
-        )
-        binding.tvTitleTopBar.text = spannableString
+        val greetings = getString(R.string.welcome_message, username)
+        binding.tvUsername.text = greetings
+
     }
 
     private fun navigateToDetails(idMovie: Int) {

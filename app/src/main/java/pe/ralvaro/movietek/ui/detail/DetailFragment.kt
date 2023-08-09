@@ -45,7 +45,6 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>(FragmentDetailBinding
     }
 
     private fun drawSuccessScreen(data: Movie) {
-        binding.tvTitleMovie.text = data.title
         binding.tvTitleMovieTopBar.apply {
             text = data.title
             isSelected = true
@@ -57,7 +56,8 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>(FragmentDetailBinding
         }
         binding.tvOverview.text = data.overview
         binding.tvReleaseDate.text = data.releaseDate
-        binding.tvRatingValue.text = data.voteAverage.toString()
+        val newCoverageScale = ((data.voteAverage / 10.0) * 5.0).toFloat()
+        binding.ratingBar.rating = newCoverageScale
     }
 
 }

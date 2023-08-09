@@ -19,11 +19,13 @@ class MovieAdapterPager(
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(current: Movie, onItemClick: (Int) -> Unit) {
-            binding.ivPoster.load(current.posterPath) {
+            binding.ivCover.load(current.posterPath) {
                 error(R.drawable.img_not_found)
                 fallback(R.drawable.img_not_found)
             }
-            binding.tvMovieTitle.text = current.title
+            val newCoverageScale = ((current.voteAverage / 10.0) * 5.0).toFloat()
+            binding.ratingBar.rating = newCoverageScale
+            binding.tvName.text = current.title
             binding.root.setOnClickListener {
                 onItemClick(current.id)
             }

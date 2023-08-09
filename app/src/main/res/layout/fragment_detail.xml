@@ -6,59 +6,49 @@
     android:layout_height="match_parent"
     tools:context=".ui.detail.DetailFragment">
 
-    <com.google.android.material.card.MaterialCardView
+    <LinearLayout
         android:id="@+id/top_bar"
-        style="@style/CustomCardViewStyle"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
-        app:cardBackgroundColor="@color/primary_green"
-        app:cardElevation="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:strokeWidth="0dp">
+        tools:ignore="UseCompoundDrawables">
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <ImageView
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:contentDescription="@string/back_btn"
+            android:padding="10dp"
+            android:src="@drawable/ic_arrow_back" />
+
+        <TextView
+            android:id="@+id/tv_title_movie_top_bar"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:orientation="horizontal"
-            tools:ignore="UseCompoundDrawables">
+            android:layout_marginStart="@dimen/small_space"
+            android:layout_weight="1"
+            android:ellipsize="marquee"
+            android:textStyle="bold"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:freezesText="true"
+            android:gravity="center_vertical"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:scrollHorizontally="true"
+            android:singleLine="true"
+            android:textColor="@color/on_primary_night_blue"
+            android:textSize="20sp"
+            tools:text="John Wick" />
 
-            <ImageView
-                android:id="@+id/btn_back"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:contentDescription="@string/back_btn"
-                android:padding="10dp"
-                android:src="@drawable/ic_arrow_back" />
-
-            <TextView
-                android:id="@+id/tv_title_movie_top_bar"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginStart="@dimen/small_space"
-                android:layout_weight="1"
-                android:ellipsize="marquee"
-                android:focusable="true"
-                android:focusableInTouchMode="true"
-                android:freezesText="true"
-                android:gravity="center_vertical"
-                android:marqueeRepeatLimit="marquee_forever"
-                android:scrollHorizontally="true"
-                android:singleLine="true"
-                android:textColor="@color/on_primary_night_blue"
-                android:textSize="20sp"
-                tools:text="John Wick" />
-
-        </LinearLayout>
-
-    </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/actionbar_minus_radius_medium"
+        android:layout_marginTop="?actionBarSize"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -71,9 +61,10 @@
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/materialCardView"
-                style="@style/CustomCardViewStyle"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
+                android:layout_marginHorizontal="16dp"
+                app:cardCornerRadius="20dp"
                 app:cardElevation="0dp"
                 app:cardPreventCornerOverlap="false"
                 app:layout_constraintBottom_toTopOf="@+id/guideline9"
@@ -95,66 +86,6 @@
 
             </com.google.android.material.card.MaterialCardView>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:clipChildren="false"
-                android:clipToPadding="false"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:paddingHorizontal="@dimen/small_space"
-                app:layout_constraintBottom_toBottomOf="@+id/materialCardView"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/guideline19">
-
-                <TextView
-                    android:id="@+id/tv_title_movie"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ellipsize="end"
-                    android:gravity="center"
-                    android:maxLines="2"
-                    android:paddingBottom="5dp"
-                    android:shadowColor="@color/black"
-                    android:shadowDx="4"
-                    android:shadowDy="4"
-                    android:shadowRadius="4"
-                    android:textColor="@color/white"
-                    android:textSize="28sp"
-                    android:textStyle="bold"
-                    tools:text="@string/pacific_rim_the_black" />
-
-                <TextView
-                    android:id="@+id/tv_release_date"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingBottom="5dp"
-                    android:shadowColor="@color/black"
-                    android:shadowDx="4"
-                    android:shadowDy="4"
-                    android:shadowRadius="4"
-                    android:textColor="@color/white"
-                    tools:text="2023-08-09" />
-
-
-                <TextView
-                    android:id="@+id/tv_rating_value"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:drawablePadding="@dimen/radius_small"
-                    android:shadowColor="@color/black"
-                    android:shadowDx="4"
-                    android:shadowDy="4"
-                    android:shadowRadius="4"
-                    android:textColor="@color/white"
-                    android:textSize="18sp"
-                    app:drawableEndCompat="@drawable/ic_round_star"
-                    tools:text="4.5" />
-
-
-            </LinearLayout>
-
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline9"
                 android:layout_width="wrap_content"
@@ -162,33 +93,27 @@
                 android:orientation="horizontal"
                 app:layout_constraintGuide_begin="500dp" />
 
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guideline19"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintGuide_begin="357dp" />
 
             <TextView
                 android:id="@+id/textView11"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="24dp"
                 android:text="@string/overview"
                 android:textSize="22sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/guideline9" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_release_date" />
 
             <TextView
                 android:id="@+id/tv_overview"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="24dp"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="8dp"
                 android:lineSpacingExtra="4dp"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -196,6 +121,56 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView11"
                 tools:text="@string/overview_sample" />
 
+            <RatingBar
+                android:id="@+id/ratingBar"
+                style="?attr/ratingBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:theme="@style/RatingBar"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+                app:layout_constraintEnd_toStartOf="@+id/imageView2"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/imageView2" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="24dp"
+                android:src="@drawable/ic_rotten_tomatoes"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/ratingBar"
+                app:layout_constraintTop_toTopOf="@+id/guideline9"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/release"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_release_date"
+                app:layout_constraintEnd_toStartOf="@+id/tv_release_date"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tv_release_date" />
+
+            <TextView
+                android:id="@+id/tv_release_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/textView2"
+                app:layout_constraintTop_toBottomOf="@+id/imageView2"
+                tools:text="2023 - 07 - 19" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

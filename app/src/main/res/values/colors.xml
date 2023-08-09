@@ -10,4 +10,7 @@
     <color name="on_secondary_night_blue">#363B3B</color>
 
     <color name="gray">#b3bdc2</color>
+    <color name="dark_gray">#009688</color>
+    <color name="star_active">#FFEB3B</color>
+    <color name="star_inactive">#009688</color>
 </resources>

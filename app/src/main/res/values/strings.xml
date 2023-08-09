@@ -13,12 +13,15 @@
     <string name="login">Login</string>
     <string name="loading">Loading…</string>
     <string name="successfully_login">Successfully login</string>
+    <string name="welcome_message">Hola %s,</string>
     <string name="welcome_to_movietek">Welcome to MovieTek</string>
     <string name="sign_in_to_your_account">Sign in to your account</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
 
     <string name="error_details_toast">Error when trying to show details</string>
+    <string name="release">Lanzamiento:</string>
+    <string name="choose_your_favourite_movie">Escoge tu pelicula favorita</string>
 
 
 </resources>
