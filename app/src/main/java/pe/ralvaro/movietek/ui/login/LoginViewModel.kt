@@ -52,7 +52,6 @@ class LoginViewModel @Inject constructor(
     // When credentials are valid, we execute the login
     private suspend fun executeLogin() {
         loginUseCase(Pair(userName, password)).first().let {
-            Timber.d("Login result: $it")
             when (it) {
                 is Result.Success -> _loginStatusChannel.send(LoginStatus.Success)
                 else -> _loginStatusChannel.send(LoginStatus.Error("Invalid credentials"))

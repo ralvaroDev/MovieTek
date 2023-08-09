@@ -8,11 +8,11 @@ import javax.inject.Inject
 /**
  * Single point of access to movies
  */
-class MoviesRepository @Inject constructor(
+open class MoviesRepository @Inject constructor(
     private val dao: MovieDao
 ) {
 
-    fun getMovie(idMovie: Int) = dao.getMovieById(id = idMovie).map {
+    open fun getMovie(idMovie: Int) = dao.getMovieById(id = idMovie).map {
         it.toDomainModel()
     }
 

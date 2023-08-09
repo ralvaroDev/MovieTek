@@ -9,7 +9,7 @@ import javax.inject.Singleton
  * Single point of access to the fake server login point
  */
 @Singleton
-class CredentialsDataRepository @Inject constructor(
+open class CredentialsDataRepository @Inject constructor(
     private val fakeApiLogin: FakeApiLogin
 ) {
 
