@@ -1,5 +1,6 @@
 package pe.ralvaro.movietek.ui.detail
 
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import coil.load
@@ -26,11 +27,14 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>(FragmentDetailBinding
             detailViewModel.movieDetails.collect {
                 when(it) {
                     is Result.Error -> {
-
+                        Toast.makeText(
+                            requireContext(),
+                            R.string.error_details_toast,
+                            Toast.LENGTH_LONG
+                        ).show()
+                        findNavController().popBackStack()
                     }
-                    Result.Loading -> {
-
-                    }
+                    Result.Loading -> {}
                     is Result.Success -> {
                         drawSuccessScreen(it.data)
                     }
