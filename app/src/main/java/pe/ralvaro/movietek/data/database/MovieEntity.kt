@@ -19,7 +19,8 @@ data class MovieEntity(
     val title: String,
     @ColumnInfo("poster_path") val posterPath: String?,
     @ColumnInfo("vote_average") val voteAverage: Double,
-    val overview: String
+    val overview: String,
+    @ColumnInfo("release_date") val releaseDate: String
 )
 
 fun MovieEntity.toDomainModel(): Movie {
@@ -29,6 +30,7 @@ fun MovieEntity.toDomainModel(): Movie {
         title = title,
         posterPath = posterPath,
         voteAverage = voteAverage,
-        overview = overview
+        overview = overview,
+        releaseDate = releaseDate
     )
 }

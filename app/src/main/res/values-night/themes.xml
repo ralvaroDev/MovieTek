@@ -13,4 +13,9 @@
         <item name="postSplashScreenTheme">@style/Base.Theme.MovieTek</item>
     </style>
 
+    <style name="ratingBarYellow" parent="Theme.AppCompat">
+        <item name="colorControlNormal">#D4AF37</item>
+        <item name="colorControlActivated">#D4AF37</item>
+    </style>
+
 </resources>

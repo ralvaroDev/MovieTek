@@ -8,7 +8,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import pe.ralvaro.movietek.data.repositories.PreferenceStoreRepository
-import pe.ralvaro.movietek.domain.main.MoviePaginationAccessUseCase
+import pe.ralvaro.movietek.domain.home.MoviePaginationAccessUseCase
 import pe.ralvaro.movietek.ui.InitialView
 import pe.ralvaro.movietek.utils.successOr
 import javax.inject.Inject

@@ -3,6 +3,7 @@ package pe.ralvaro.movietek.ui.home
 import android.content.Intent
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
@@ -22,7 +23,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
     override fun onViewCreated() {
 
         val adapter = MovieAdapterPager {
-            Timber.d("Movie: $it")
+            navigateToDetails(it)
         }
 
         binding.rvMovies.adapter = adapter.withLoadStateHeaderAndFooter(
@@ -62,6 +63,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
 
         }
 
+    }
+
+    private fun navigateToDetails(idMovie: Int) {
+        val action = HomeFragmentDirections.toDetail(idMovie)
+        findNavController().navigate(action)
     }
 
 }

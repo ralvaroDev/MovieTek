@@ -22,4 +22,7 @@ interface MovieDao {
     @Query("SELECT COUNT(*) FROM movie_table")
     fun quantityData(): Flow<Int>
 
+    @Query("SELECT * FROM movie_table WHERE id_movie = :id")
+    fun getMovieById(id: Int): Flow<MovieEntity>
+
 }

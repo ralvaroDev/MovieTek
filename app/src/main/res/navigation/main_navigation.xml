@@ -9,5 +9,18 @@
         android:id="@+id/homeFragment"
         android:name="pe.ralvaro.movietek.ui.home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/to_detail"
+            app:destination="@id/detailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="pe.ralvaro.movietek.ui.detail.DetailFragment"
+        android:label="DetailFragment"
+        tools:layout="@layout/fragment_detail">
+        <argument
+            android:name="id_movie"
+            app:argType="integer" />
+    </fragment>
 </navigation>

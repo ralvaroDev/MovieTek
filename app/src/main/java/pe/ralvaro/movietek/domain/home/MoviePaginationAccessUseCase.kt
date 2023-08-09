@@ -1,4 +1,4 @@
-package pe.ralvaro.movietek.domain.main
+package pe.ralvaro.movietek.domain.home
 
 import androidx.paging.Pager
 import androidx.paging.PagingData

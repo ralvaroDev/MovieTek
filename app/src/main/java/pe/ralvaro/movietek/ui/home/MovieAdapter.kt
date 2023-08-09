@@ -24,7 +24,7 @@ class MovieAdapterPager(
                 fallback(R.drawable.img_not_found)
             }
             binding.tvMovieTitle.text = current.title
-            binding.tvMovieTitle.setOnClickListener {
+            binding.root.setOnClickListener {
                 onItemClick(current.id)
             }
         }

@@ -47,7 +47,8 @@ private fun List<NetMovie>.toDatabaseModel() : List<MovieEntity> {
             title = it.title,
             posterPath = it.posterPathUrl,
             voteAverage = it.voteAverage,
-            overview = it.overview
+            overview = it.overview,
+            releaseDate = it.releaseDate
         )
     }
 }
