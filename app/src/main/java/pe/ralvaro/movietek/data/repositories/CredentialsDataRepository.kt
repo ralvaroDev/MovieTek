@@ -1,6 +1,6 @@
 package pe.ralvaro.movietek.data.repositories
 
-import pe.ralvaro.movietek.data.network.FakeApiLogin
+import pe.ralvaro.movietek.data.remote.FakeApiLogin
 import pe.ralvaro.movietek.utils.Result
 import javax.inject.Inject
 import javax.inject.Singleton

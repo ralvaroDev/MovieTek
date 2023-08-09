@@ -1,7 +1,7 @@
 package pe.ralvaro.movietek.data.preferences
 
-import kotlinx.serialization.Serializable
 import androidx.datastore.core.Serializer
+import kotlinx.serialization.Serializable
 import kotlinx.serialization.SerializationException
 import kotlinx.serialization.json.Json
 import pe.ralvaro.movietek.ui.InitialView
@@ -36,10 +36,12 @@ object ProtoStoreSerializer : Serializer<ProtoPreferenceModel> {
 
     @Suppress("BlockingMethodInNonBlockingContext")
     override suspend fun writeTo(t: ProtoPreferenceModel, output: OutputStream) {
-        output.write(Json.encodeToString(
-            serializer = ProtoPreferenceModel.serializer(),
-            value = t
-        ).encodeToByteArray())
+        output.write(
+            Json.encodeToString(
+                serializer = ProtoPreferenceModel.serializer(),
+                value = t
+            ).encodeToByteArray()
+        )
     }
 
 }

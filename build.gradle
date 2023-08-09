@@ -11,6 +11,7 @@ buildscript {
         room_version = "2.5.2"
         retrofit_version = "2.9.0"
         kt_version = "1.8.20"
+        paging_version = "3.2.0"
     }
     dependencies {
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"

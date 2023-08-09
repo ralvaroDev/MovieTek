@@ -1,19 +1,20 @@
 package pe.ralvaro.movietek.di
 
+import androidx.paging.ExperimentalPagingApi
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import pe.ralvaro.movietek.data.network.FakeApiLogin
-import pe.ralvaro.movietek.data.network.FakeServerSource
-import pe.ralvaro.movietek.data.network.MovieApiService
-import pe.ralvaro.movietek.data.repositories.LocalMovieSource
-import pe.ralvaro.movietek.data.repositories.MovieDataSource
-import pe.ralvaro.movietek.data.repositories.RemoteMovieSource
-import pe.ralvaro.movietek.utils.NetworkUtils
-import javax.inject.Named
+import pe.ralvaro.movietek.data.database.MovieDao
+import pe.ralvaro.movietek.data.database.MovieEntity
+import pe.ralvaro.movietek.data.remote.FakeServerSource
+import pe.ralvaro.movietek.data.repositories.MovieRemoteMediator
+import pe.ralvaro.movietek.data.repositories.RemoteMediatorSourceRepository
 import javax.inject.Singleton
 
+@OptIn(ExperimentalPagingApi::class)
 @InstallIn(SingletonComponent::class)
 @Module
 class AppModule {
@@ -21,23 +22,23 @@ class AppModule {
     @Provides
     fun provideFakeServer() = FakeServerSource
 
-    @Singleton
     @Provides
-    @Named("remoteDataSource")
-    fun provideRemoteDataSource(
-        movieApiService: MovieApiService,
-        networkUtils: NetworkUtils
-    ): MovieDataSource {
-        return RemoteMovieSource(movieApiService, networkUtils)
-    }
-
     @Singleton
-    @Provides
-    @Named("localDataSource")
-    fun provideLocalDataSource(): MovieDataSource {
-        return LocalMovieSource()
+    fun providePagerMediator(
+        rmSourceRepository: RemoteMediatorSourceRepository,
+        dao: MovieDao
+    ): Pager<Int, MovieEntity> {
+        return Pager(
+            config = PagingConfig(
+                pageSize = MovieRemoteMediator.PAGE_SIZE,
+                enablePlaceholders = false
+            ),
+            remoteMediator = MovieRemoteMediator(
+                rmSource = rmSourceRepository
+            ),
+            pagingSourceFactory = { dao.pagingSource() }
+        )
     }
-
 
 
 }

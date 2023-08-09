@@ -2,18 +2,14 @@ package pe.ralvaro.movietek.ui.login
 
 import com.google.common.truth.Truth.assertThat
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.flow.last
 import kotlinx.coroutines.test.runTest
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
-import org.mockito.kotlin.mock
-import pe.ralvaro.movietek.data.network.FakeServerSource
+import pe.ralvaro.movietek.data.remote.FakeServerSource
 import pe.ralvaro.movietek.data.repositories.CredentialsDataRepository
 import pe.ralvaro.movietek.domain.login.LoginUseCase
-import pe.ralvaro.movietek.ui.LauncherViewModelTest
 import pe.ralvaro.movietek.util.FakePreferenceStoreRepository
 import pe.ralvaro.movietek.util.MainCoroutineRule
 import pe.ralvaro.movietek.util.TestData

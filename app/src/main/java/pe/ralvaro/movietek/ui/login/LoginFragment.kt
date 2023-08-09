@@ -4,8 +4,6 @@ import android.content.Intent
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.collectLatest
 import pe.ralvaro.movietek.databinding.FragmentLoginBinding
 import pe.ralvaro.movietek.ui.BaseFragment
 import pe.ralvaro.movietek.ui.MainActivity

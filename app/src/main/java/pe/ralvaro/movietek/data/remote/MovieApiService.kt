@@ -1,12 +1,12 @@
-package pe.ralvaro.movietek.data.network
+package pe.ralvaro.movietek.data.remote
 
-import pe.ralvaro.movietek.data.network.models.NetUpcomingContainer
+import pe.ralvaro.movietek.data.remote.models.NetUpcomingContainer
 import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface MovieApiService {
 
-    @GET("upcoming/")
+    @GET("movie/upcoming")
     suspend fun getUpcomingMovies(
         @Query("page") page: Int
     ) : NetUpcomingContainer

@@ -4,12 +4,14 @@ import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import pe.ralvaro.movietek.data.network.FakeApiLogin
-import pe.ralvaro.movietek.data.network.FakeServerSource
 import pe.ralvaro.movietek.data.preferences.ProtoDataStorage
 import pe.ralvaro.movietek.data.preferences.ProtoDataStorageImpl
+import pe.ralvaro.movietek.data.remote.FakeApiLogin
+import pe.ralvaro.movietek.data.remote.FakeServerSource
 import pe.ralvaro.movietek.data.repositories.PreferenceStoreRepository
 import pe.ralvaro.movietek.data.repositories.PreferenceStoreRepositoryImpl
+import pe.ralvaro.movietek.data.repositories.RemoteMediatorSourceRepository
+import pe.ralvaro.movietek.data.repositories.RemoteMediatorSourceRepositoryImpl
 import javax.inject.Singleton
 
 @InstallIn(SingletonComponent::class)
@@ -32,5 +34,11 @@ abstract class InterfaceModule {
     abstract fun bindFakeApiImpl(
         fakeServerSource: FakeServerSource
     ): FakeApiLogin
+
+    @Singleton
+    @Binds
+    abstract fun bindRemoteMediatorSourceRepository(
+        remoteMediatorSourceRepositoryImpl: RemoteMediatorSourceRepositoryImpl
+    ): RemoteMediatorSourceRepository
 
 }

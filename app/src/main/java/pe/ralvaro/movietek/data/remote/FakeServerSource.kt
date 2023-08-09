@@ -1,9 +1,8 @@
-package pe.ralvaro.movietek.data.network
+package pe.ralvaro.movietek.data.remote
 
 import kotlinx.coroutines.delay
 import pe.ralvaro.movietek.utils.Result.*
 import pe.ralvaro.movietek.utils.Result
-import timber.log.Timber
 
 interface FakeApiLogin {
     suspend fun putLogin(userName: String, password: String): Result<Any>

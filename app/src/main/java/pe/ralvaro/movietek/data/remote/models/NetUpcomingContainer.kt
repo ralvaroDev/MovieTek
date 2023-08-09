@@ -1,8 +1,7 @@
-package pe.ralvaro.movietek.data.network.models
+package pe.ralvaro.movietek.data.remote.models
 
 import com.google.gson.annotations.SerializedName
-import pe.ralvaro.movietek.data.models.Movie
-import pe.ralvaro.movietek.data.models.UpcomingMovies
+import pe.ralvaro.movietek.data.database.MovieEntity
 
 data class NetUpcomingContainer(
     @SerializedName("dates") val dates: NetDates,
@@ -26,31 +25,31 @@ data class NetMovie(
     @SerializedName("original_title") val originalTitle: String,
     @SerializedName("overview") val overview: String,
     @SerializedName("popularity") val popularity: Double,
-    @SerializedName("poster_path") val posterPath: String,
+    @SerializedName("poster_path") val posterPath: String?,
     @SerializedName("release_date") val releaseDate: String,
     @SerializedName("title") val title: String,
     @SerializedName("video") val video: Boolean,
     @SerializedName("vote_average") val voteAverage: Double,
     @SerializedName("vote_count") val voteCount: Int
-)
-
-fun NetUpcomingContainer.toDomainModel(): UpcomingMovies {
-    return UpcomingMovies(
-        page = page,
-        movieList = movieList.toDomainModel(),
-        totalPages = totalPages,
-        totalResults = totalResults
-    )
+) {
+    val posterPathUrl: String
+        get() = BASE_POSTER_IMAGE_URL.plus(posterPath)
 }
 
-private fun List<NetMovie>.toDomainModel() : List<Movie> {
+fun NetUpcomingContainer.toDatabaseModel():  List<MovieEntity> {
+    return movieList.toDatabaseModel()
+}
+
+private fun List<NetMovie>.toDatabaseModel() : List<MovieEntity> {
     return map {
-        Movie(
-            id = it.id,
+        MovieEntity(
+            idMovie = it.id,
             title = it.title,
-            posterPath = it.posterPath,
+            posterPath = it.posterPathUrl,
             voteAverage = it.voteAverage,
             overview = it.overview
         )
     }
 }
+
+const val BASE_POSTER_IMAGE_URL = "https://image.tmdb.org/t/p/w500"

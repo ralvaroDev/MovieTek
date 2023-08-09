@@ -1,8 +1,8 @@
 package pe.ralvaro.movietek.util
 
-import pe.ralvaro.movietek.data.network.models.NetDates
-import pe.ralvaro.movietek.data.network.models.NetMovie
-import pe.ralvaro.movietek.data.network.models.NetUpcomingContainer
+import pe.ralvaro.movietek.data.remote.models.NetDates
+import pe.ralvaro.movietek.data.remote.models.NetMovie
+import pe.ralvaro.movietek.data.remote.models.NetUpcomingContainer
 
 object TestData {
 

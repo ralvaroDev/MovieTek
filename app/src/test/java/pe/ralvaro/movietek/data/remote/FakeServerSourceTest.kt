@@ -1,4 +1,4 @@
-package pe.ralvaro.movietek.data.network
+package pe.ralvaro.movietek.data.remote
 
 import com.google.common.truth.Truth.assertThat
 import kotlinx.coroutines.ExperimentalCoroutinesApi
