@@ -1,6 +1,7 @@
 package pe.ralvaro.movietek.ui.detail
 
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import coil.load
 import dagger.hilt.android.AndroidEntryPoint
 import pe.ralvaro.movietek.R
@@ -16,6 +17,10 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>(FragmentDetailBinding
     private val detailViewModel : DetailViewModel by viewModels()
 
     override fun onViewCreated() {
+
+        binding.btnBack.setOnClickListener {
+            findNavController().popBackStack()
+        }
 
         launchAndRepeatWithViewLifecycle {
             detailViewModel.movieDetails.collect {

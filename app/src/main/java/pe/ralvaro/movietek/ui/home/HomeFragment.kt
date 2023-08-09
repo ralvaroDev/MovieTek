@@ -79,8 +79,18 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
         val firstWord = getString(R.string.welcome_msg)
         val secondWord = username.plus("!")
         val spannableString = SpannableString("$firstWord $secondWord")
-        spannableString.setSpan(AbsoluteSizeSpan(16, true), 0, firstWord.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
-        spannableString.setSpan(AbsoluteSizeSpan(24, true), firstWord.length + 1, firstWord.length + secondWord.length + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+        spannableString.setSpan(
+            AbsoluteSizeSpan(16, true),
+            0,
+            firstWord.length,
+            Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+        )
+        spannableString.setSpan(
+            AbsoluteSizeSpan(24, true),
+            firstWord.length + 1,
+            firstWord.length + secondWord.length + 1,
+            Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+        )
         binding.tvTitleTopBar.text = spannableString
     }
 

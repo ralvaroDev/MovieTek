@@ -1,5 +1,11 @@
 package pe.ralvaro.movietek.utils
 
+import android.app.Activity
+import android.content.Context
+import android.view.View
+import android.view.inputmethod.EditorInfo
+import android.view.inputmethod.InputMethodManager
+import android.widget.EditText
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -21,4 +27,23 @@ inline fun Fragment.launchAndRepeatWithViewLifecycle(
             block()
         }
     }
+}
+
+fun EditText.onGo(callback: () -> Unit) {
+    setOnEditorActionListener { _, actionId, _ ->
+        if (actionId == EditorInfo.IME_ACTION_GO) {
+            callback.invoke()
+            return@setOnEditorActionListener true
+        } else false
+    }
+}
+
+fun Fragment.hideKeyboard() {
+    view?.let { activity?.hideKeyboard(it) }
+}
+
+
+fun Context.hideKeyboard(view: View) {
+    val inputMethodManager = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+    inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
 }

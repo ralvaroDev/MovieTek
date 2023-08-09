@@ -5,4 +5,9 @@
 
     <color name="primary_green">#c0e863</color>
     <color name="on_primary_night_blue">#1c1f1f</color>
+
+    <color name="secondary_green">#97CB50</color>
+    <color name="on_secondary_night_blue">#363B3B</color>
+
+    <color name="gray">#b3bdc2</color>
 </resources>

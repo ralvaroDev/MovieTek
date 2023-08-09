@@ -23,16 +23,16 @@
 
             <ImageView
                 android:id="@+id/btn_logout"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
+                android:adjustViewBounds="true"
                 android:contentDescription="@string/logout_btn"
                 android:padding="10dp"
-                android:adjustViewBounds="true"
-                android:src="@drawable/ic_log_out" />
+                android:src="@drawable/ic_log_out"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/tv_title_top_bar"
@@ -40,14 +40,14 @@
                 android:layout_height="match_parent"
                 android:layout_marginStart="@dimen/small_space"
                 android:layout_weight="1"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
                 android:gravity="center"
                 android:maxLines="1"
                 android:textColor="@color/on_primary_night_blue"
                 android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 tools:text="Hey, admin!" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -55,17 +55,16 @@
     </com.google.android.material.card.MaterialCardView>
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:layout_width="match_parent"
         android:id="@+id/ly_swipe_refresh"
-        android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_movies"
             android:layout_width="match_parent"
-            tools:listitem="@layout/item_movie"
             android:layout_height="wrap_content"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/item_movie" />
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
